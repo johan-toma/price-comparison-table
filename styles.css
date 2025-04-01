@@ -1,128 +1,153 @@
-*::after, *::before, * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*, *::after, *::before {
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
-    --primary: 188, 81, 152;
-    --secondary: 232, 142, 201;
-    --background-color: 255, 255, 255;
+    --accent-color: #641BFF;
 }
 
 body {
     margin: 0;
+    background-color: #F8F9FB;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.price-container {
+.price-comparison {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-}
-
-.btn {
-    padding: 0.5rem 4rem;
-    outline: none;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1.1rem;
-    margin: 2rem;
-    transition: all 300ms ease-in-out;
-}
-
-
-
-.button-white {
-    background-color: rgba(var(--background-color), 1);
-    color: rgba(var(--primary), 1);
-}
-
-.button-purple {
-    background-color: rgba(var(--primary), 1);
-    color: rgba(var(--background-color), 1);
-}
-
-.button-white:hover {
-    background-color: rgba(var(--primary), 0.6);
-    color: rgba(var(--background-color), 1);
-    box-shadow: 0 0 1px black;
-}
-
-.button-purple:hover {
-    background-color: rgba(var(--background-color), 0.6);
-    color: rgba(var(--primary), 1);
-    box-shadow: 0 0 1px black;
-}
-
-li {
-    list-style-type: none;
-}
-
-.card {
-    width: 300px;
-    height: 550px;
-    background-color: white;
-    margin-right: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 10px #999;
-}
-
-.card-larger {
-    height: 600px;
-    background-color: rgba(var(--secondary), 1);
-    color: white;
-}
-
-.value-container {
-    text-align: center;
+    align-items: stretch;
     width: 100%;
-    padding: 1.5rem;
-    position: relative;
-}
-
-.value-container::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: black;
-    width: 90%;
-    transform: translateX(5%);
-}
-
-.features {
-    display: flex;
-    position: relative;
-}
-
-.features::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: black;
-    width: 90%;
-    transform: translateX(5%);
-}
-
-ul li {
-    font-size: 0.9rem;
     margin: 1rem;
 }
 
-.avaliable {
-    font-weight: 100;
-    opacity: 1;
-    color: black;
+.price-column {
+    background-color: white;
+    box-shadow: 0 7px 30px rgba(52, 31, 97, 0.1);
+    padding: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 275px;
+    border-radius: 8px;
 }
 
-.unavailable {
-    color: #333;
+.price-column.popular {
+    background-color: var(--accent-color);
+    box-shadow: 0 7px 30px rgba(52, 13, 135, 0.3);
+    color: white;
+    margin-top: -1.5rem;
+    padding-top: 3.5rem;
+    margin-bottom: -1.5rem;
+    padding-bottom: 3.5rem;
+    position: relative;
+}
+
+.most-popular {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.price-column:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.price-column:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.price-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.price {
+    display: flex;
+    font-size: 3.5rem;
+}
+
+.dollar-sign {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-right: 0.25rem;
+}
+
+.per-month {
+    font-size: 0.75rem;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.plan-name {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.price-column.popular .divider {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.feature img {
+    height: 1.1em;
+    width: 1.1em;
+    margin-right: 0.5rem;
+}
+
+.feature.inactive {
+    color: #999;
     text-decoration: line-through;
 }
 
+
+.btn {
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 3rem;
+    transition: 250ms ease-in-out;
+    transform: scale(1);
+}
+
+.btn:hover, .btn:focus {
+    transform: scale(1.1);
+}
+
+.cta-popular {
+    background-color: white;
+    color: var(--accent-color);
+}
